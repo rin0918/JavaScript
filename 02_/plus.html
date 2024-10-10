@@ -10,6 +10,7 @@
 <body>
     <p id="result">0</p>
     <button id="plus">+</button>
+    <button id="minus">-</button>
     <script>
         // const plus = document.getElementById('plus');
 
@@ -22,11 +23,20 @@
         let num = 0;
         const result = document.getElementById('result');
         const plusBtn = document.getElementById('plus');
+        const minusBtn = document.getElementById('minus');
 
         plusBtn.addEventListener('click', function () {
-            num = num + 1;
+            num += 1;
             result.innerHTML = num;
         });
+
+        minusBtn.addEventListener('click', function () {
+            num -= 1;
+            result.innerHTML = num;
+        });
+
+        let val = 1;
+        console.log(`url(${val += 1}.png)`);
     </script>
 </body>
 
