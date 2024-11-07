@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おみくじその3</title>
+    <style>
+        #result {
+            transition: 1s;
+        }
+
+        .active {
+            /* transform: translateX(100px); */
+            transform: rotateY(360deg);
+            /* opacity: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">占う</button>
+    <p><img id="result" src="https://trident.takagino.net/doc2024/javascript/assets/04/omikuji/omikuji.png" alt="占う">
+    </p>
+    <p id="message">何か一言が表示されます。</p>
+    <ul id="count"></ul>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const result = document.getElementById('result');
+        const message = document.getElementById('message');
+
+        const path = 'https://trident.takagino.net/doc2024/javascript/assets/04/omikuji'
+        let daikichi = 0;
+        let chuukichi = 0;
+        let syoukichi = 0;
+        let kyou = 0;
+        let daikyou = 0;
+        const count = document.getElementById('count');
+        // count.innerHTML = `<li>大吉${daikichi}回</li><li>中吉${chuukichi}回</li><li>小吉${syoukichi}回</li><li>凶${kyou}回</li><li>大凶${daikyou}回</li>`;
+
+
+        btn.addEventListener('click', function () {
+            let num = Math.floor(Math.random() * 5);
+            console.log(num);
+            switch (num) {
+                // 大吉
+                case 0:
+                    result.setAttribute('src', `${path}/daikichi.png`);
+                    daikichi += 1;
+                    console.log(daikichi);
+
+                    switch (daikichi) {
+                        case 1:
+                            message.innerHTML = 'ちょうど欲しいものが何故かもらえる';
+                            break
+                        case 5:
+                            message.innerHTML = '大吉5回目！おめでとう！！';
+                            break
+                        case 10:
+                            message.innerHTML = 'やりすぎやろがい';
+                            break
+                        default:
+                            break;
+                    }
+                    count.innerHTML = `大吉${daikichi}回`;
+                    // if (daikichi == 5) {
+                    //     console.log(true);
+                    //     message.innerHTML = '大吉5回目！おめでとう！！';
+                    // }
+                    break
+                // 中吉
+                case 1:
+                case 2:
+                    result.setAttribute('src', `${path}/chuukichi.png`);
+                    chuukichi += 1;
+                    console.log(chuukichi);
+                    message.innerHTML = '自販機のルーレット全部当たる';
+                    count.innerHTML = `中吉${chuukichi}回`;
+                    break
+                // 小吉
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    result.setAttribute('src', `${path}/syoukichi.png`);
+                    syoukichi += 1;
+                    console.log(syoukichi);
+                    message.innerHTML = '割り箸が綺麗に割れる';
+                    count.innerHTML = `小吉${syoukichi}回`
+                    break
+                // 凶
+                case 7:
+                case 8:
+                    result.setAttribute('src', `${path}/kyou.png`);
+                    kyou += 1;
+                    console.log(kyou);
+                    message.innerHTML = 'すねをぶつける';
+                    count.innerHTML = `凶${kyou}回`
+                    break
+                // 大凶
+                case 9:
+                    result.setAttribute('src', `${path}/daikyou.png`);
+                    daikyou += 1;
+                    console.log(daikyou);
+                    message.innerHTML = '財布を落とす';
+                    count.innerHTML = `大凶${daikyou}回`
+                    break
+                default:
+                    console.log('エラー');
+            }
+
+
+
+
+
+            result.classList.toggle('active');
+        })
+
+    </script>
+
+
+</body>
+
+</html>
