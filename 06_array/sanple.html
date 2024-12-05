@@ -8,17 +8,22 @@
 </head>
 
 <body>
+
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li class="obj">ccc</li>
+        <li class="obj">ddd</li>
+    </ul>
+
     <script>
-        const fruits = ['apple', 'banana', 'orange'];
-        console.log(fruits[2]);
+        // const list = document.getElementsByClassName('obj');//Elementが複数形になってElementsになる
+        // // HTMLcollectionは配列ではない
+        // console.log(list.length);
 
-        fruits[1] = 'peach';
-        fruits[2] = 'pineapple';
-        console.log(fruits.length);
-        console.log(fruits[fruits.length - 1])
-
-        const empty = [];
-        console.log(empty);
+        const elem = document.querySelectorAll('li');//querySelector は最初の一つのみ取得　id名の時に使える
+        // Allがつくと全て取得される
+        console.log(elem);
     </script>
 </body>
 
