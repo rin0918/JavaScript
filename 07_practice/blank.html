@@ -19,7 +19,11 @@
     </ul>
 
     <script>
-        document.getElementByTagName
+        const link = document.querySelectorAll('a[href^=https]');/*httpsから始まるという意味*/
+
+        for (let i = 0; i < link.length; i++) {
+            link[i].setAttribute("target", "_blank");
+        }
     </script>
 </body>
 

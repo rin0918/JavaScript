@@ -1,0 +1,56 @@
+<style>
+    body {
+        height: 3000px;
+        background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    }
+
+    #toTop {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 50px;
+        height: 50px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 1rem;
+        line-height: 1rem;
+        /*１行のテキストを上下左右中央にする*/
+        /* それ以外を上下左右中央
+        display: flex;
+        justify-content: center;
+        text-align: center;*/
+
+        text-align: center;
+        cursor: pointer;
+        display: none;
+    }
+
+    #toTop.active {
+        display: block;
+    }
+</style>
+
+<body>
+    <button id="toTop">↑</button>
+
+    <script>
+        const toTop = document.querySelector("#toTop");
+        const limit = 300;
+
+        /* スクロールイベントとスクロール量の取得 */
+        window.addEventListener("scroll", function () {
+            console.log(window.scrollY);
+
+            // &&…かつ　||…または　!…否定
+            if (window.scrollY > limit && !toTop.classList.contains("active")) {
+                toTop.classList.add("active");
+                // activeの追加
+            } else if (window.scrollY <= limit && toTop.classList.contains("actiive")) {
+                toTop.classList.remove("active");
+                // activeの削除
+            }
+        });
+    </script>
+</body>
