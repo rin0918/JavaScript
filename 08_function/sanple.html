@@ -8,51 +8,49 @@
 </head>
 
 <body>
+    <h1>見出し</h1>
+    <p>本文</p>
+    <button>ボタン</button>
     <script>
-        // // 関数の宣言
-        // function testFunc(val1, val2) {
-        //     return val1 + val2;
-        // }
 
-        // // 関数の実行
-        // testFunc(30, 50);
-        // console.log(testFunc());
+        let count = 0;
+        let timer = 0;
+        const countUp = () => {
+            console.log(count++);
 
-        // let doller = changeDoller(100);
-        // console.log(`${doller}ドル`);
-
-        // function changeDoller(yen) {
-        //     return yen * 150;
-        // }
-        // // 値が戻ってくるreturnで返す
-
-        // let text = setText();
-        // console.log(text);
-
-        // function setText(name = "takagi") {
-        //     return `Hello!${name}`;
-        // }
-
-        // const testFunc = function (val1, val2) {
-        //     return val1, val2;
-        // }
-
-        // console.log(testFunc(10, 20));
-
-        let value = [5, 10, 15, 20, 25];
-        const average = (val) => {
-            return (val / value.length);
-
-            // if (num < 10) {
-            //     return `0${num}`;
-            // } else {
-            //     return num;
-            // }
-            // console.log(setNum(10));
+            timer = setTimeout(countUp, 1000);
         }
-        console.log(average(value));
+        // setTimeout();
+
+        if (count > 5) {
+            clearTimeout(timer);
+        }
+
+        countUp();
+        // let count = 0;
+        // let timer;
+
+        // const color = () => {
+        //     let r = Math.floor(Math.random() * 256);
+        //     let g = Math.floor(Math.random() * 256);
+        //     let b = Math.floor(Math.random() * 256);
+
+        //     document.body.style.background = `rgb(${r},${g},${b})`
+        // }
+
+        // setInterval(color, 1000);
 
 
+
+        // const countUp = () => {
+        //     console.log(count++);
+        //     // ++が前だとコンソールする前に+1
+        //     // 後ろだとコンソール後に+1
+        //     // if (count > 5) {
+        //     clearInterval(timer)
+        //     // }
+        // };
+        // timer = setInterval(countUp, 1000)
     </script>
 </body>
 
